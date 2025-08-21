@@ -186,7 +186,13 @@
                         <td><strong>Jabatan</strong></td>
                         <td>: {{ $payslip->employee->position ?? 'N/A' }}</td>
                         <td><strong>Departemen</strong></td>
-                        <td>: IT Development (Dummy)</td>
+                        <td>:
+                            @if ($payslip->employee && $payslip->employee->departments->count())
+                                {{ $payslip->employee->departments->pluck('name')->implode(', ') }}
+                            @else
+                                Tidak Diketahui
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <td><strong>Tanggal Bergabung</strong></td>
@@ -198,7 +204,7 @@
                     </tr>
                     <tr>
                         <td><strong>Bank</strong></td>
-                        <td>: {{ $payslip->employee->bank_account_details ?? 'BCA - 1234567890 (Dummy)' }}</td>
+                        <td>: {{ $payslip->employee->bank_account_details ?? 'Belum Diisi' }}</td>
                         <td><strong>Tanggal Pembayaran</strong></td>
                         <td>: {{ $payslip->pay_date?->format('d F Y') ?? 'N/A' }}</td>
                     </tr>

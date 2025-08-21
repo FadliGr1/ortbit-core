@@ -24,12 +24,8 @@ class PayslipResource extends Resource
     protected static ?string $navigationLabel = 'Payslips';
     protected static ?int $navigationSort = 4;
     
-     protected static array $with = ['employee.user', 'employee.departments'];
+    protected static array $with = ['employee.user', 'employee.departments'];
 
-    /**
-     * Method ini sekarang hanya fokus pada filtering data.
-     * Eager loading sudah ditangani oleh properti $with di atas.
-     */
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();

@@ -8,6 +8,7 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Forms\Components\KeyValue;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;   
+use App\Models\Payslip;
 
 
 
@@ -30,9 +31,9 @@ class ListPayslips extends ListRecords
                 Section::make('Informasi Karyawan')
                     ->schema([
                         TextEntry::make('employee.user.name')->label('Nama Karyawan'),
-                        TextEntry::make('employee.departments.name')
+                        TextEntry::make('departments')
                         ->label('Departments')
-                        ->badge(),
+                        ->state(fn (Payslip $record) => $record->employee?->departments?->pluck('name')->all() ?? []),
                         TextEntry::make('employee.position')->label('Jabatan'),
                         TextEntry::make('month')->label('Bulan Gaji'),
                         TextEntry::make('employee.nik')->label('NIK'),
