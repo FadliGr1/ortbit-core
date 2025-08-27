@@ -157,7 +157,8 @@ class OrbitPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            // ->topNavigation()
+            ->topNavigation()
+            
            
             ;
     }

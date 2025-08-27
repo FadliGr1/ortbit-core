@@ -20,7 +20,7 @@ use App\Models\Payslip;
 use App\Models\Payroll;
 use Filament\Notifications\Notification;
 use Filament\Actions\ActionGroup;
-
+use Filament\Actions\DeleteAction;
 
 class PayrollsTable
 {
@@ -44,7 +44,7 @@ class PayrollsTable
                 ActionGroup::make([
                     EditAction::make(),
                     ViewAction::make(),
-
+                    DeleteAction::make(),
                     Action::make('generatePayslip')
                             ->label('Generate Payslip')
                             ->icon('heroicon-o-document-plus')

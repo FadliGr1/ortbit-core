@@ -21,6 +21,10 @@ use App\Models\Leave;
 use App\Policies\LeavePolicy;
 use App\Models\Department;
 use App\Policies\DepartmentPolicy;
+use App\Models\PerformanceReview;
+use App\Policies\PerformanceReviewPolicy;
+
+use Illuminate\Support\Facades\Schema;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -54,6 +58,8 @@ return Application::configure(basePath: dirname(__DIR__))
     Gate::policy(Attendance::class, AttendancePolicy::class);
     Gate::policy(Leave::class, LeavePolicy::class);
     Gate::policy(Department::class, DepartmentPolicy::class);
+    Gate::policy(PerformanceReview::class, PerformanceReviewPolicy::class);
+
 
     Gate::define('approve_leave', [LeavePolicy::class, 'approve']);
     Gate::define('reject_leave', [LeavePolicy::class, 'reject']);

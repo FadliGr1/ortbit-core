@@ -68,6 +68,11 @@ class SyncPermissionsCommand extends Command
             'approve_leave',
             'reject_leave',
             'review_attendance_adjustment',
+            'view_any_performance_review',
+            'view_performance_review',
+            'create_performance_review',
+            'update_performance_review',
+            'delete_performance_review',
             
             // Tambahkan permission custom lainnya di sini jika ada
         ];

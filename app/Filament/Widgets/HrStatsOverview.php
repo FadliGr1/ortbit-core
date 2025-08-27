@@ -10,6 +10,13 @@ use App\Models\Attendance;
 
 class HrStatsOverview extends StatsOverviewWidget
 {
+
+    public static function canView(): bool
+    {
+        // Periksa apakah pengguna sudah login dan memiliki salah satu role yang diizinkan.
+        return auth()->check() && auth()->user()->hasRole(['Human Resources','Super Admin']);
+    }
+
     protected function getStats(): array
     {
         // Menghitung total karyawan aktif

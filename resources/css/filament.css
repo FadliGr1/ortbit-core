@@ -1,0 +1,7 @@
+.custom-editor .trix-content {
+    min-height: 300px !important;
+    cursor: text !important;
+}
+.custom-editor .trix-content:hover {
+    cursor: text !important;
+}
